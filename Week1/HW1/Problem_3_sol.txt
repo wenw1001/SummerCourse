@@ -1,0 +1,45 @@
+測資：
+[0,0], [0,0]
+[1,3], [2]
+[1,3], [-2,-1]
+[2,3], [1,4]
+
+---------執行程式---------
+在「//設定測資nums1, nums2」下方修改nums1({}), nums2({})內的值
+
+（以下為預設測資[1,3], [2]）
+vector<int> nums1({1,3});
+vector<int> nums2({2});
+
+---------程式碼說明---------
+概念：找出兩陣列最接近median的位置，利用Binary Search分別對兩陣列進行搜尋
+
+註：希望每次切出來的位置其左右元素數量相等，或左半部元素多右半部元素1個，這樣當array為odd時，median為兩array左半部之最大：even時，median為兩array(左半部之最大+右半部之最小)/2
+
+1. 讓nums1為size較小的array（之後mid2比較好設定且保證複雜度較小）
+
+2. partition設定為(n+1)/2, 可確保切完後左半部元素等於（或大於1）右半邊元素，partition的值為中位數的左邊共有幾個元素
+
+3. 切出nums1和nums2的中位數位置mid1, mid2（其中mid2會是partition - mid1是因為總共有partition個元素）
+nums1左半部：nums1[0...mid1-1]
+nums1右半部：nums1[mid1...m]
+nums2左半部：nums2[0...mid2-1]
+nums2右半部：nums2[mid2...n]
+
+4. 檢查切出的位置是否最接近median(若最接近，則這兩個切出來的位置之左半部值必小於等於右半部值，此為中位數性質)
+a. 檢查nums1左半部<nums2右半部
+b. 檢查nums2左半部<nums1右半部
+
+5. 如果a錯誤，代表mid1位置超過了，median在左半部，search範圍設定在nums1左半部，重新檢查
+如果b錯誤，代表mid1位置太小，median在右半部，search範圍設定在nums1右半部，重新檢查
+
+6. 正確的話看是奇數偶數：
+odd：左半部最大
+even：（左半部最大+右半部最小）/ 2
+
+7. 若輸入arrays沒先排序好，就會回傳0
+
+---------複雜度分析---------
+用Binrary search針對較小length的陣列進行搜尋, 故複雜度為O(log(min(m,n)))
+
+
