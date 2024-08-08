@@ -11,17 +11,17 @@
 using namespace std;
 
 
-int gets(string s, int len, int t){
+int gets(string s, unsigned long len, int t){
     if (t<len && t>=0)
         return s[t];
     else
         return INT_MAX?t>len:INT_MIN;
 };
-int compare(string s,int len, int prePos, int nextPos, string *ans){
+int compare(string s,unsigned long len, int prePos, int nextPos, string *ans){
     char pre = gets(s,len,prePos);
     char next = gets(s, len,nextPos);
     // cout<<"comparing... "<<pre<<" && "<<next<<endl;
-    if(pre==next && pre!=NULL){// 左右字相同
+    if(pre==next && pre!=0){// 左右字相同
     // cout<<"compared! "<<pre<<" == "<<next<<" (ans update!)"<<endl;
         *ans = pre + *ans + next;
         // cout<<"compared! "<<pre<<" == "<<next<<", ans="<<*ans<<" (ans update!)"<<endl;
@@ -33,7 +33,7 @@ int compare(string s,int len, int prePos, int nextPos, string *ans){
 
 string longestPalindrome(string s) {
     string ans;
-    int len = s.size();
+    unsigned long len = s.size();
     int count, max_count=0;
     for (int c=0; c<len; c++){//c = current index
     // cout<<"c= "<<c<<" ("<<s[c]<<")"<<endl;

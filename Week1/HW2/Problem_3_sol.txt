@@ -1,15 +1,17 @@
-測資：
+參考測資：
 [0,0], [0,0]
 [1,3], [2]
 [1,3], [-2,-1]
 [2,3], [1,4]
 
 ---------執行程式---------
-在「//設定測資nums1, nums2」下方修改nums1({}), nums2({})內的值
+//在terminal輸入以下指令：
+g++ -std=c++11 Problem_3_sol.cpp -o Problem_3.out
+./Problem_3.out
 
-（以下為預設測資[1,3], [2]）
-vector<int> nums1({1,3});
-vector<int> nums2({2});
+//會顯示：
+found median:
+2
 
 ---------程式碼說明---------
 概念：找出兩陣列最接近median的位置，利用Binary Search分別對兩陣列進行搜尋
