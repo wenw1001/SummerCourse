@@ -1,4 +1,4 @@
-測資：
+參考測資：
 {5,7,7,8,8,10}, target8 -->[3,4]
 {}, target=0 -->[-1,-1]
 {1}, target=0 -->[-1,-1]
@@ -6,11 +6,12 @@
 
 
 ---------執行程式---------
-在int main(int argc, const char * argv[])下方修改nums1和target的值
+//在terminal輸入以下指令：
+g++ -std=c++11 Problem_2_sol.cpp -o Problem_2.out
+./Problem_2.out
 
-（以下為預設測資{5,7,7,8,8,10}以及target=8）
-vector<int> nums1({5,7,7,8,8,10});
-int target = 8;
+//會顯示：
+[3,4]
 
 ---------程式碼說明---------
 概念：進行兩次二分法，分別找出最接近target first position的位置以及最接近target last position的位置

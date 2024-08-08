@@ -1,14 +1,16 @@
-測資：
+參考測資：
 "babab"
 "cddc"
 "poiei"
 "bbbb"
 "a"
 ---------執行程式---------
-在int main(int argc, const char * argv[])下方修改s值
+// 在terminal輸入以下指令：
+g++ -std=c++11 Problem_1_sol.cpp -o Problem_1.out
+./Problem_1.out
 
-（以下為預設測資"babab）
-string s="babab" ;
+//會顯示：
+bab
 
 ---------程式碼說明---------
 概念：將元素與其兩側相鄰元素比較，判斷是否符合回文規定，若是，則繼續遞迴檢查再相鄰的兩側是否符合回文，直到盡頭或不符合規定為止，並將符合的最長回文記錄下來，輸出最大長度的回文。
